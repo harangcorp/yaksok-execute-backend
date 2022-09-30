@@ -6,10 +6,10 @@ RUN python setup.py install
 
 EXPOSE 8080
 
-RUN pip3 install -r requirements.txt
-
 
 COPY . /app
 WORKDIR /app
+
+RUN pip3 install -r requirements.txt
 
 ENTRYPOINT ["python", "server.py"]
