@@ -9,6 +9,7 @@ EXPOSE 8080
 
 COPY . /app
 WORKDIR /app
+RUN chmod 777 -R /app
 
 RUN pip3 install -r requirements.txt
 
