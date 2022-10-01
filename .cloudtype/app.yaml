@@ -1,4 +1,4 @@
-name: dockerfile
+name: yaksok-execute-backend
 app: dockerfile
 options:
   ports: 8080
