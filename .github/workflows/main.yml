@@ -7,25 +7,13 @@ on:
       - '**'
 jobs:
   deploy:
+    name: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Connect repository
-        uses: cloudtype-github-actions/connect@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          ghtoken: ${{ secrets.GHP_TOKEN }}
-      - name: Deploy
-        uses: cloudtype-github-actions/deploy@v1
-        with:
-          token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: myproject
-          yaml: |-
-            name: myapp
-            app: html
-            options:
-              git:
-                ref: ${{ github.ref }}
-                url: git@github.com:${{ github.repository }}.git
-              docbase: /docs
+          node-version: "16"
+      - run: npm i -g @cloudtype/cli
+      - run: ctype login -t ${{ secrets.CLOUDTYPE_TOKEN }}
+      - run: ctype apply
