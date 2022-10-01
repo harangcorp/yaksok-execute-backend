@@ -1,0 +1,8 @@
+name: dockerfile
+app: dockerfile
+options:
+  ports: 8080
+  dockerfile: Dockerfile
+  git:
+    branch: main
+    url: https://doch2:${{ secrets.GHP_TOKEN }}@github.com/harangcorp/yaksok-execute-backend.git
