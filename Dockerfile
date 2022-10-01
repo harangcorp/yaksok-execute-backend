@@ -7,10 +7,9 @@ RUN python setup.py install
 EXPOSE 8080
 
 
+RUN mkdir /app
 COPY . /app
 WORKDIR /app
-
-RUN chown -R 777 /app/*
 
 RUN pip3 install -r requirements.txt
 
