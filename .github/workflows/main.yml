@@ -2,7 +2,9 @@ name: Deploy to cloudtype
 on:
   push:
     branches:
-      - master
+      - '**'
+    tags:
+      - '**'
 jobs:
   deploy:
     runs-on: ubuntu-latest
