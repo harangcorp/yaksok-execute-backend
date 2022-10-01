@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import os
 import subprocess
 
 app = Flask(__name__)
