@@ -21,11 +21,10 @@ def main():
     stdout, stderr = result.communicate()
     if result.returncode != 0:
         finalResult = "오류가 발생하였습니다. 약속 코드에 문제가 있는지 확인해주세요."
+        return jsonify({"result": finalResult}), 401
     else:
         finalResult = stdout[:(len(stdout)-1)]
-
-
-    return jsonify({"result": finalResult}), 200
+        return jsonify({"result": finalResult}), 200
 
 
 if __name__ == '__main__':
